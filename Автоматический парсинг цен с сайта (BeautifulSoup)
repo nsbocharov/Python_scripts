@@ -1,4 +1,4 @@
-# Amazon и другие сайты могут блокировать парсинг, нужно будет использовать прокси или Selenium #
+# Amazon и другие сайты могут блокировать парсинг, нужно будет использовать прокси или Selenium
 
 import requests
 from bs4 import BeautifulSoup
