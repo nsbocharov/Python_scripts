@@ -1,0 +1,20 @@
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+
+url = "https://docs.google.com/forms/d/e/ВАШ_GOOGLE_FORM_ID/viewform"
+
+driver = webdriver.Chrome()  # Убедитесь, что у вас установлен chromedriver
+driver.get(url)
+
+# Найдем первое поле формы (замените XPATH на актуальный)
+field = driver.find_element(By.XPATH, "//input[@type='text']")
+field.send_keys("Мой ответ")
+field.send_keys(Keys.RETURN)
+
+# Найдем кнопку "Отправить" и кликнем на нее
+submit_button = driver.find_element(By.XPATH, "//span[text()='Отправить']")
+submit_button.click()
+
+print("Форма успешно отправлена!")
+driver.quit()
