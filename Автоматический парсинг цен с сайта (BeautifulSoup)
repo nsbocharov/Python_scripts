@@ -1,0 +1,16 @@
+# Amazon и другие сайты могут блокировать парсинг, нужно будет использовать прокси или Selenium #
+
+import requests
+from bs4 import BeautifulSoup
+
+url = "https://www.amazon.com/dp/B08N5WRWNW"  # Замените на нужную страницу
+headers = {"User-Agent": "Mozilla/5.0"}
+response = requests.get(url, headers=headers)
+
+soup = BeautifulSoup(response.text, "html.parser")
+price = soup.find("span", {"class": "a-offscreen"})
+
+if price:
+    print(f"Цена товара: {price.text}")
+else:
+    print("Не удалось найти цену")
