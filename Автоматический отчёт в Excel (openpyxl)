@@ -1,0 +1,22 @@
+import openpyxl
+
+wb = openpyxl.Workbook()
+sheet = wb.active
+sheet.title = "Отчет"
+
+# Заполняем данные
+sheet["A1"] = "Товар"
+sheet["B1"] = "Количество"
+sheet["C1"] = "Цена"
+
+data = [
+    ["Телефон", 10, 50000],
+    ["Ноутбук", 5, 120000],
+    ["Наушники", 20, 3000]
+]
+
+for row in data:
+    sheet.append(row)
+
+wb.save("sales_report.xlsx")
+print("Отчет сохранен!")
