@@ -1,0 +1,35 @@
+def km_to_miles(km):
+    return km * 0.621371
+
+def miles_to_km(miles):
+    return miles / 0.621371
+
+def celsius_to_fahrenheit(c):
+    return c * 9/5 + 32
+
+def fahrenheit_to_celsius(f):
+    return (f - 32) * 5/9
+
+print("Конвертер единиц")
+print("Выберите тип конвертации:")
+print("1. Километры → Мили")
+print("2. Мили → Километры")
+print("3. Цельсий → Фаренгейт")
+print("4. Фаренгейт → Цельсий")
+
+choice = input("Введите номер варианта (1-4): ")
+
+if choice == "1":
+    km = float(input("Введите расстояние в километрах: "))
+    print("В милях:", km_to_miles(km))
+elif choice == "2":
+    miles = float(input("Введите расстояние в милях: "))
+    print("В километрах:", miles_to_km(miles))
+elif choice == "3":
+    c = float(input("Введите температуру в Цельсиях: "))
+    print("В Фаренгейтах:", celsius_to_fahrenheit(c))
+elif choice == "4":
+    f = float(input("Введите температуру в Фаренгейтах: "))
+    print("В Цельсиях:", fahrenheit_to_celsius(f))
+else:
+    print("Неверный выбор")
