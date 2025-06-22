@@ -1,0 +1,24 @@
+import random
+import string
+
+def generate_password(length=12, use_digits=True, use_specials=True):
+    chars = string.ascii_letters  # A-Z + a-z
+
+    if use_digits:
+        chars += string.digits  # 0-9
+    if use_specials:
+        chars += string.punctuation  # !"#$%&...
+
+    password = ''.join(random.choice(chars) for _ in range(length))
+    return password
+
+# --- Взаимодействие с пользователем ---
+
+print("Генератор паролей")
+length = int(input("Введите длину пароля: "))
+
+digits_choice = input("Добавить цифры? (y/n): ").lower() == 'y'
+specials_choice = input("Добавить спецсимволы? (y/n): ").lower() == 'y'
+
+password = generate_password(length, digits_choice, specials_choice)
+print("Сгенерированный пароль:", password)
